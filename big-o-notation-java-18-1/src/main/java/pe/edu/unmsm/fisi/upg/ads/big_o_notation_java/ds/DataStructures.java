@@ -7,7 +7,8 @@ import com.google.common.base.Stopwatch;
 public class DataStructures {
 	private final static int SIZE_LOG_LINES = 100000;
     private final static int SIZE_UNIQUE_IPS = 90001;
-    private static LogReader logReader = new LogReader(SIZE_LOG_LINES, SIZE_UNIQUE_IPS, CollectionType.ArrayList);
+    //private static LogReader logReader = new LogReader(SIZE_LOG_LINES, SIZE_UNIQUE_IPS, CollectionType.ArrayList);
+    private static LogReader logReader = new LogReader(SIZE_LOG_LINES, SIZE_UNIQUE_IPS, CollectionType.HashSet);
 
     public static void main(String[] args) {
         System.out.println("Reading all log entries...");
