@@ -11,9 +11,12 @@ public class Exponential {
 		long N = 45;
 		Exponential exponential = new Exponential();
 		Stopwatch stopwatch = Stopwatch.createStarted();
+		long[] secuencia = new long[(int) N];
 		for (int i = 1; i <= N; i++) {
 			try {
-				long fibonacci = exponential.fibonacci(i);
+				//long fibonacci = exponential.fibonacci(i);
+				//System.out.println(i + " => " + fibonacci);
+				long fibonacci = exponential.fibonacciLineal(i, secuencia);
 				System.out.println(i + " => " + fibonacci);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -31,4 +34,15 @@ public class Exponential {
         }
         return fibonacci(n - 1) + fibonacci(n - 2);
     }
+	
+
+	public static long fibonacciLineal(int i, long[] secuencia) {		
+		if(i-1 <= 1) {
+			secuencia[i-1] = 1; //se engloban dos estados
+		} else { 
+		secuencia[i-1] = secuencia[i-2] + secuencia[i-3]; //tercer estado
+		}
+		return secuencia[i-1];			
+		
+	} 
 }
