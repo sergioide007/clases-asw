@@ -14,8 +14,6 @@ public class Exponential {
 		long[] secuencia = new long[(int) N];
 		for (int i = 0; i <= N; i++) {
 			try {
-				//long fibonacci = exponential.fibonacci(i);
-				//System.out.println(i + " => " + fibonacci);
 				long fibonacci = exponential.fibonacciLineal(i, secuencia);
 				System.out.println(i + " => " + fibonacci);
 			} catch (Exception e) {
