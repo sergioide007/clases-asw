@@ -12,39 +12,34 @@ public class Exponential {
 		Exponential exponential = new Exponential();
 		Stopwatch stopwatch = Stopwatch.createStarted();
 		long[] secuencia = new long[(int) N];
-		for (int i = 0; i <= N; i++) {
+		for (int i = 0; i < N; i++) {
 			try {
 				long fibonacci = exponential.fibonacciLineal(i, secuencia);
 				System.out.println(i + " => " + fibonacci);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-        }
+		}
 		System.out.println(String.format("Time elapsed: %d seconds", stopwatch.elapsed(TimeUnit.SECONDS)) + "\n");
 	}
-	
+
 	public long fibonacci(int n) throws Exception {
 		if (n < 0) {
-		    throw new Exception("N can not be less than zero");
+			throw new Exception("N can not be less than zero");
 		}
 		if (n <= 2) {
-		    return 1;
+			return 1;
 		}
 		return fibonacci(n - 1) + fibonacci(n - 2);
-    	}
-	
+	}
 
-	public static long fibonacciLineal(int i, long[] secuencia) {		
-		if (i == 0) {
-		    secuencia[i - 1] = 0;
+	public static long fibonacciLineal(int i, long[] secuencia) {
+		if (i < 2) {
+			secuencia[i] = 1;
 		} else {
-		    if (i - 1 <= 1) {
-			secuencia[i - 1] = 1;
-		    } else {
-			secuencia[i - 1] = secuencia[i - 2] + secuencia[i - 3];
-		    }
+			secuencia[i] = secuencia[i - 1] + secuencia[i - 2];
 		}
-		return secuencia[i - 1];			
+		return secuencia[i];
 
-	} 
+	}
 }
